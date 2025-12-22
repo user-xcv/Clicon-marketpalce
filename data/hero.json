@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "key": "xbox",
+        "price": 299,
+        "image": "/imgs/xbox.png",
+        "bgColor": "bg-[#F2F4F5]",
+        "quantity": 1
+    },
+    {
+        "id": 2,
+        "key": "ps",
+        "price": 499,
+        "image": "/imgs/ply5.png",
+        "bgColor": "bg-[#F2F4F5]",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "key": "xboxBlue",
+        "price": 69,
+        "image": "/imgs/plyBlue.png",
+        "bgColor": "bg-[#F2F4F5]",
+        "quantity": 1
+    }
+]

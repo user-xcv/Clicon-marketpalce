@@ -1,0 +1,86 @@
+[
+    {
+        "id": 18,
+        "price": 80,
+        "rating": 4,
+        "reviews": 816,
+        "image": "/imgs/Image (48).png",
+        "title": "Portable Washing Machine, 11lbs capacity Model 18NMF...",
+        "quantity": 1,
+        "type": "headphone"
+    },
+    {
+        "id": 19,
+        "price": 360,
+        "rating": 4,
+        "reviews": 994,
+        "image": "/imgs/Image (54).png",
+        "title": "Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/6...",
+        "quantity": 1,
+        "type": "headphone"
+    },
+    {
+        "id": 20,
+        "price": 70,
+        "rating": 4,
+        "reviews": 660,
+        "image": "./imgs/Image (42).png",
+        "title": "TOZO T6 True Wireless Earbuds Bluetooth Headphon...",
+        "quantity": 1,
+        "type": "keyboard",
+        "hot": true
+    },
+    {
+        "id": 21,
+        "price": 250,
+        "rating": 5,
+        "reviews": 492,
+        "image": "./imgs/Image (55).png",
+        "title": "Dell Optiplex 7000x7480 All-in-One Computer Monitor",
+        "quantity": 1,
+        "type": "printer"
+    },
+    {
+        "id": 22,
+        "title": "JBL FLIP 4 – Waterproof Portable Bluetooth Speaker – Black",
+        "price": 250,
+        "badge": "32% OFF",
+        "image": "/imgs/Image (8).png",
+        "quantity": 1,
+        "type": "webcam",
+        "rating": 5,
+        "reviews": 816
+    },
+    {
+        "id": 23,
+        "title": "4K UHD LED Smart TV with Chromecast Built-in",
+        "price": 220,
+        "badge": "Sale",
+        "image": "/imgs/Image (56).png",
+        "quantity": 1,
+        "type": "webcam",
+        "rating": 4,
+        "reviews": 329
+    },
+    {
+        "id": 24,
+        "title": "Wired Over-Ear Gaming Headphones with USB",
+        "price": 536,
+        "reviews": 536,
+        "image": "/imgs/Image (57).png",
+        "quantity": 1,
+        "type": "printer",
+        "rating": 5
+    },
+    {
+        "id": 25,
+        "title": "Polaroid 57-Inch Photo/Video Tripod with Deluxe Tripod Ca...",
+        "oldPrice": 1600,
+        "price": 1200,
+        "badge": "25% OFF",
+        "reviews": 423,
+        "image": "/imgs/Image (58).png",
+        "quantity": 1,
+        "rating": 5
+    }
+]

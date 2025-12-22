@@ -1,0 +1,95 @@
+[
+    {
+        "id": 10,
+        "price": 70,
+        "rating": 5,
+        "reviews": 738,
+        "hot": true,
+        "image": "/imgs/Image (45).png",
+        "title": "TOZO T6 True Wireless Earbuds Bluetooth Headphon...",
+        "quantity": 1,
+        "type": "phone",
+        "mainType": "featured"
+    },
+    {
+        "id": 11,
+        "price": 2300,
+        "rating": 5,
+        "reviews": 536,
+        "image": "/imgs/Image (46).png",
+        "title": "Samsung Electronics Samsung Galaxy S21 5G",
+        "quantity": 1,
+        "type": "phone",
+        "mainType": "featured"
+    },
+    {
+        "id": 12,
+        "price": 360,
+        "rating": 5,
+        "reviews": 423,
+        "badge": "BEST DEALS",
+        "image": "/imgs/Image (47).png",
+        "title": "Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/6...",
+        "quantity": 1,
+        "type": "conditsainer",
+        "mainType": "featured"
+    },
+    {
+        "id": 13,
+        "price": 80,
+        "rating": 4,
+        "reviews": 816,
+        "image": "/imgs/Image (48).png",
+        "title": "Portable Washing Machine, 11lbs capacity Model 18NMF...",
+        "quantity": 1,
+        "type": "headphone",
+        "mainType": "featured"
+    },
+    {
+        "id": 14,
+        "price": 1500,
+        "rating": 5,
+        "reviews": 647,
+        "image": "/imgs/Image (49).png",
+        "title": "Wired Over-Ear Gaming Headphones with USB",
+        "quantity": 1,
+        "type": "drom",
+        "mainType": "featured"
+    },
+    {
+        "id": 15,
+        "price": 1200,
+        "oldPrice": 1600,
+        "rating": 4,
+        "badge": "25% OFF",
+        "reviews": 877,
+        "image": "/imgs/Image (50).png",
+        "title": "Polaroid 57-Inch Photo/Video Tripod with Deluxe Tripod Ca...",
+        "quantity": 1,
+        "type": "tv",
+        "mainType": "featured"
+    },
+    {
+        "id": 16,
+        "price": 250,
+        "rating": 5,
+        "reviews": 426,
+        "image": "/imgs/Image (52).png",
+        "title": "Dell Optiplex 7000x7480 All-in-One Computer Monitor",
+        "quantity": 1,
+        "type": "tv",
+        "mainType": "featured"
+    },
+    {
+        "id": 17,
+        "price": 220,
+        "rating": 5,
+        "reviews": 583,
+        "badge": "SALE",
+        "image": "/imgs/Image (51).png",
+        "title": "4K UHD LED Smart TV with Chromecast Built-in",
+        "quantity": 1,
+        "type": "phone",
+        "mainType": "featured"
+    }
+]
