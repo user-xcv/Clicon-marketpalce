@@ -1,8 +1,15 @@
 import { Heart, ShoppingCart, Eye, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import ShopBtn from "../buttons/ShopBtn";
+import QuickViewModal from "../others/QuickViewModal";
 const Accessories = ({ addToCart }) => {
+    const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const [filterType, setFilterType] = useState('all');
+    const handleQuickView = (product) => {
+        setSelectedProduct(product);
+        setIsQuickViewOpen(true);
+    };
 
     const [items, setItems] = useState([])
     useEffect(() => {
@@ -50,16 +57,16 @@ const Accessories = ({ addToCart }) => {
                                             className="max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
                                         />
                                         <div className="absolute inset-0 z-20 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/5">
-                                            <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center hover:bg-[#FA8232] hover:text-white transition shadow-sm">
+                                            <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center cursor-pointer hover:bg-[#FA8232] hover:text-white transition shadow-sm">
                                                 <Heart size={18} />
                                             </button>
                                             <button
                                                 onClick={() => addToCart(item)}
-                                                className="w-9 h-9 bg-white rounded-full flex items-center justify-center hover:bg-[#FA8232] hover:text-white transition shadow-sm"
+                                                className="w-9 h-9 bg-white rounded-full flex items-center cursor-pointer justify-center hover:bg-[#FA8232] hover:text-white transition shadow-sm"
                                             >
                                                 <ShoppingCart size={18} />
                                             </button>
-                                            <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center hover:bg-[#FA8232] hover:text-white transition shadow-sm">
+                                            <button onClick={() => handleQuickView(item)} className="w-9 h-9 bg-white rounded-full flex items-center cursor-pointer justify-center hover:bg-[#FA8232] hover:text-white transition shadow-sm">
                                                 <Eye size={18} />
                                             </button>
                                         </div>
@@ -107,6 +114,11 @@ const Accessories = ({ addToCart }) => {
 
                 </div>
             </div >
+            <QuickViewModal
+                product={selectedProduct}
+                isOpen={isQuickViewOpen}
+                onClose={() => setIsQuickViewOpen(false)}
+            />
         </>
     )
 }

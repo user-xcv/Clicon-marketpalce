@@ -1,37 +1,64 @@
 import { Heart, ShoppingCart, Eye, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import ShopBtn from "../buttons/ShopBtn";
-
-const Featured = ({ addToCart, products }) => {
-
+import { supabase } from "../others/supabase";
+const Featured = ({ addToCart }) => {
+    // 2. Mahsulotlar uchun state yarating
+    const [products, setProducts] = useState([]);
     const [filterType, setFilterType] = useState('all');
 
+    const fetchProducts = async () => {
+        const { data, error } = await supabase
+            .from('products')
+            .select('*')
+            .eq('main_type', 'featured')
+            .order('id', { ascending: true });
 
-    const [items, setItems] = useState([])
+
+        if (error) {
+            console.log('Error fetching data ', error);
+        } else {
+            setProducts(data || []);
+        }
+    };
+
+
     useEffect(() => {
-        fetch('../data/featured.json')
-            .then(res => res.json())
-            .then(data => setItems(data))
-    }, [])
-    const filteredItems = filterType === 'all' ? items : items.filter(item => item.type === filterType)
-    return (
+        fetchProducts();
+    }, []);
 
-        <div className="mx-auto container py-10 ">
-            {/* Sarlavha qismi */}
+    // 3. "items" o'rniga "products" dan foydalaning
+    const filteredItems = filterType === 'all'
+        ? products
+        : products.filter(item => item.type === filterType);
+
+    return (
+        <div className="mx-auto container py-10">
             <div className="flex justify-between items-center mb-6">
                 <span className="text-[#191C1F] text-2xl font-semibold">Featured Products</span>
                 <div className="flex items-center gap-4 text-sm">
-                    <p className="text-[#191C1F] font-semibold hover:border-b-2 border-[#FA8232] cursor-pointer" onClick={() => setFilterType('all')}>All Product</p>
-                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer  " onClick={() => setFilterType('phone')}>Smart Phone</p>
-                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer " onClick={() => setFilterType('laptop')}>Laptop</p>
-                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer " onClick={() => setFilterType('headphone')}>Headphone</p>
-                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer " onClick={() => setFilterType('tv')}>TV</p>
+                    {/* Faol filtrlarni vizual ajratish uchun style qo'shish tavsiya etiladi */}
+                    <p
+                        className={`cursor-pointer ${filterType === 'all' ? 'border-b-2 border-[#FA8232] text-black font-semibold' : 'text-[#5F6C72]'}`}
+                        onClick={() => setFilterType('all')}
+                    >
+                        All Product
+                    </p>
+                    <p
+                        className={`cursor-pointer hover:text-black ${filterType === 'phone' ? 'border-b-2 border-[#FA8232] text-black font-semibold' : 'text-[#5F6C72]'}`}
+                        onClick={() => setFilterType('phone')}
+                    >
+                        Smart Phone
+                    </p>
+                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer" onClick={() => setFilterType('laptop')}>Laptop</p>
+                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer" onClick={() => setFilterType('headphone')}>Headphone</p>
+                    <p className="text-[#5F6C72] hover:text-black hover:border-b-2 border-[#FA8232] cursor-pointer" onClick={() => setFilterType('tv')}>TV</p>
                 </div>
             </div>
 
-            <div className="flex   gap-5 ">
+            <div className="flex gap-5">
                 {/* Banner qismi */}
-                <div className="bg-[#F3DE6D] w-1/4 flex items-center flex-col  pt-10 text-center">
+                <div className="bg-[#F3DE6D] w-1/4 flex items-center flex-col pt-10 text-center">
                     <p className="text-[#BE4646] font-semibold text-xs tracking-wider uppercase">Computer & Accessories</p>
                     <p className="text-[#191C1F] text-3xl font-bold">32% Discount</p>
                     <p className="text-[#475156] text-base">For all electronics products</p>
@@ -46,7 +73,7 @@ const Featured = ({ addToCart, products }) => {
                 {/* Mahsulotlar Gridi */}
                 <div className="w-3/4 grid grid-cols-4 gap-5">
                     {filteredItems.map((item) => (
-                        <div key={item.id} className="relative bg-white border border-gray-300 h-90  gap-10 px-5 pt-10 hover:shadow-2xl items-center group">
+                        <div key={item.id} className="relative bg-white border border-gray-300 h-90 px-5 pt-10 hover:shadow-2xl items-center group">
                             {/* Badges */}
                             <div className="absolute top-2 left-2 z-10 flex flex-col gap-1">
                                 {item.badge && (
@@ -62,7 +89,7 @@ const Featured = ({ addToCart, products }) => {
                             </div>
 
                             {/* Rasm va Hover Actions */}
-                            <div className="relative h-40 flex items-center justify-center mb-3 ">
+                            <div className="relative h-40 flex items-center justify-center mb-3">
                                 <img
                                     src={item.image}
                                     alt={item.title}
@@ -87,14 +114,13 @@ const Featured = ({ addToCart, products }) => {
                             {/* Mahsulot ma'lumotlari */}
                             <div className="flex items-center gap-1 text-yellow-400 mb-1">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} size={12} fill={i < item.rating ? "currentColor" : "none"} />
+                                    <Star key={i} size={12} fill={i < item.rating ? "currentColor" : "none"} stroke={i < item.rating ? "none" : "currentColor"} />
                                 ))}
                                 <span className="text-[#77878F] text-[12px] ml-1">({item.reviews})</span>
                             </div>
 
-                            <h3 className="text-sm text-[#191C1F] line-clamp-2 mb-2 h-10 leading-tight">
-                                {item.title}
-                            </h3>
+                            <h1 className="text-sm text-[#191C1F] line-clamp-2 mb-2 h-10 leading-tight">
+                            </h1>
 
                             <div className="flex items-center gap-2">
                                 <span className="text-[#2DA5F3] font-bold">${item.price}</span>
