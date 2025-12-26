@@ -221,7 +221,7 @@ const Navbar = ({ cartCount, cart, setCart }) => {
                                                     <div className="flex items-center gap-3">
                                                         <img src={item.image} alt={item.title} className="w-16 h-16 object-contain border border-gray-100 rounded-md" />
                                                         <div className="flex flex-col">
-                                                            <p className="text-sm font-medium line-clamp-1">{item.title}</p>
+                                                            <p className="text-sm font-medium line-clamp-1">{item.title?.en}</p>
                                                             <p className="text-sm">{item.quantity}x <span className='text-blue-500 font-semibold'>${(item.quantity * item.price).toFixed(2)}</span></p>
                                                         </div>
                                                     </div>

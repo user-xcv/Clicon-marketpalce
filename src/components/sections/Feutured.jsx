@@ -2,10 +2,13 @@ import { Heart, ShoppingCart, Eye, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import ShopBtn from "../buttons/ShopBtn";
 import { supabase } from "../others/supabase";
+import i18n from "../Lang/i18n";
+import { useTranslation } from "react-i18next";
 const Featured = ({ addToCart }) => {
-    // 2. Mahsulotlar uchun state yarating
     const [products, setProducts] = useState([]);
     const [filterType, setFilterType] = useState('all');
+    const { i18n } = useTranslation()
+    const lang = i18n.language;
 
     const fetchProducts = async () => {
         const { data, error } = await supabase
@@ -13,8 +16,6 @@ const Featured = ({ addToCart }) => {
             .select('*')
             .eq('main_type', 'featured')
             .order('id', { ascending: true });
-
-
         if (error) {
             console.log('Error fetching data ', error);
         } else {
@@ -27,7 +28,6 @@ const Featured = ({ addToCart }) => {
         fetchProducts();
     }, []);
 
-    // 3. "items" o'rniga "products" dan foydalaning
     const filteredItems = filterType === 'all'
         ? products
         : products.filter(item => item.type === filterType);
@@ -70,11 +70,9 @@ const Featured = ({ addToCart }) => {
                     <img src="./imgs/Image.jpg" alt="Featured Promo" className="mt-auto w-full object-contain" />
                 </div>
 
-                {/* Mahsulotlar Gridi */}
                 <div className="w-3/4 grid grid-cols-4 gap-5">
                     {filteredItems.map((item) => (
                         <div key={item.id} className="relative bg-white border border-gray-300 h-90 px-5 pt-10 hover:shadow-2xl items-center group">
-                            {/* Badges */}
                             <div className="absolute top-2 left-2 z-10 flex flex-col gap-1">
                                 {item.badge && (
                                     <span className={`text-[10px] font-bold px-2 py-1 rounded-sm ${item.badge.includes('OFF') ? 'bg-yellow-400' : 'bg-[#2DA5F3] text-white'}`}>
@@ -88,7 +86,6 @@ const Featured = ({ addToCart }) => {
                                 )}
                             </div>
 
-                            {/* Rasm va Hover Actions */}
                             <div className="relative h-40 flex items-center justify-center mb-3">
                                 <img
                                     src={item.image}
@@ -119,8 +116,9 @@ const Featured = ({ addToCart }) => {
                                 <span className="text-[#77878F] text-[12px] ml-1">({item.reviews})</span>
                             </div>
 
-                            <h1 className="text-sm text-[#191C1F] line-clamp-2 mb-2 h-10 leading-tight">
-                            </h1>
+                            <p className="text-sm leading-tight line-clamp-2 mb-2 text-gray-700">
+                                {item.title?.[lang] || item.title?.en}
+                            </p>
 
                             <div className="flex items-center gap-2">
                                 <span className="text-[#2DA5F3] font-bold">${item.price}</span>
