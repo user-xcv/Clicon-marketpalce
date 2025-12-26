@@ -2,7 +2,6 @@ import { Heart, ShoppingCart, Eye, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import ShopBtn from "../buttons/ShopBtn";
 import { supabase } from "../others/supabase";
-import i18n from "../Lang/i18n";
 import { useTranslation } from "react-i18next";
 const Featured = ({ addToCart }) => {
     const [products, setProducts] = useState([]);
@@ -14,7 +13,7 @@ const Featured = ({ addToCart }) => {
         const { data, error } = await supabase
             .from('products')
             .select('*')
-            .eq('main_type', 'featured')
+            // .eq('main_type', 'featured') 
             .order('id', { ascending: true });
         if (error) {
             console.log('Error fetching data ', error);
