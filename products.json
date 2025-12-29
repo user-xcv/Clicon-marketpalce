@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "featured": true,
+        "title": "Xbox Series S - 512GB SSD Console with Wireless Controller",
+        "price": 442.12,
+        "oldPrice": 865.99,
+        "rating": 5,
+        "reviews": 52677,
+        "badge": "32% OFF",
+        "hot": true,
+        "image": "/imgs/Image.png",
+        "description": "Games built using the Xbox Series X|S development kit showcase unparalleled load times, visuals.",
+        "quantity": 1
+    },
+    {
+        "id": 2,
+        "title": "Bose Sport Earbuds - Wireless Earphones",
+        "price": 2300,
+        "soldOut": true,
+        "image": "/imgs/Image (1).png",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "title": "Simple Mobile 4G LTE Prepaid Smartphone",
+        "price": 220,
+        "image": "/imgs/Image (2).png",
+        "quantity": 1
+    },
+    {
+        "id": 4,
+        "title": "4K UHD LED Smart TV with Chromecast Built-in",
+        "price": 150,
+        "oldPrice": 865,
+        "badge": "19% OFF",
+        "image": "/imgs/Image (3).png",
+        "quantity": 1
+    },
+    {
+        "id": 5,
+        "title": "Sony DSCHX8 High Zoom Point & Shoot Camera",
+        "price": 1200,
+        "image": "/imgs/Image (4).png",
+        "quantity": 1
+    },
+    {
+        "id": 6,
+        "title": "Dell Optiplex 7000x7480 All-in-One Computer Monitor",
+        "price": 299,
+        "image": "/imgs/Image (5).png",
+        "quantity": 1
+    },
+    {
+        "id": 7,
+        "title": "Portable Washing Machine, 11lbs capacity Model 18NMFAM",
+        "price": 70,
+        "oldPrice": 865.99,
+        "image": "/imgs/Image (6).png",
+        "quantity": 1
+    },
+    {
+        "id": 8,
+        "title": "2-Barrel Carburetor Carb 2100 Engine Increase Horsepower",
+        "price": 160,
+        "hot": true,
+        "image": "/imgs/Image (7).png",
+        "quantity": 1
+    },
+    {
+        "id": 9,
+        "title": "JBL FLIP 4 – Waterproof Portable Bluetooth Speaker – Black",
+        "price": 250,
+        "oldPrice": 360,
+        "badge": "32% OFF",
+        "image": "/imgs/Image (8).png",
+        "quantity": 1
+    }
+]
